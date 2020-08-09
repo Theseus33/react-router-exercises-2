@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Route, Switch } from "react-router-dom";
-import DogList from "./DogList";
-import './App.css';
+import React, { Component } from "react";
+import Routes from "./Routes";
+import Navbar from "./Navbar";
 import whiskey from "./images/whiskey.jpg";
 import tubby from "./images/tubby.jpg";
 import hazel from "./images/hazel.jpg";
+import "./App.css";
 
 class App extends Component {
   static defaultProps = {
@@ -40,14 +40,16 @@ class App extends Component {
         ]
       }
     ]
-  }
+  };
   render() {
-  return (
-    <div>
-      <Route path="/dogs" render={() => <DogList dogs ={this.props.dogs}/>} />;
-    </div>
-
-  );
+    return (
+      <div>
+        <Navbar dogs={this.props.dogs} />
+        <div className='container'>
+          <Routes dogs={this.props.dogs} />
+        </div>
+      </div>
+    );
   }
 }
 
